@@ -1,0 +1,120 @@
+.gr-profile .gr-form .form-control {
+	display: none;
+}
+
+.gr-profile .gr-form .value {
+	padding-left: 12px; 
+}
+
+.gr-profile .gr-form.edit .form-control {
+	display: inline;
+}
+
+.gr-profile .gr-form.edit .value {
+	display: none;
+}
+
+.gr-profile .gr-form .gr-edit {
+	display: block;
+}
+
+.gr-profile .gr-form.edit .gr-edit {
+	display: none;
+}
+
+.gr-profile .gr-form .gr-save-cancel {
+	display: none;
+}
+
+.gr-profile .gr-form.edit .gr-save-cancel {
+	display: block;
+}
+
+.gr-profile .gr-form .gr-save-cancel {
+	display: none;
+}
+
+.gr-profile .gr-form .form-group {
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+}
+
+.gr-profile .gr-form input {
+	width: 150px;
+}
+
+/***** Create/Update Ride Dlg ******/
+#rideDlg .modal-dialog {
+	width: 720px;
+}
+
+#rides .gr-table {
+	width: 700px;
+	margin-right: 100px;
+}
+
+#rideDlg .form-group {
+	display: block;
+	margin-bottom: 30px;
+}
+
+#rideDlg .form-group:last-child {
+	margin-bottom: 0;
+}
+
+#rideDlg .gr-ride-form-col {
+	width: 330px;
+	display: inline-block;
+}
+
+#rideDlg .gr-ride-form-col > div,
+#rideDlg .gr-ride-form-col > input {
+	width: 49%;
+}
+
+#rideDlg .gr-ride-form-col .gr-from,
+#rideDlg .gr-ride-form-col .gr-to {
+	width: 100%;
+}
+
+/***** User Stars Rating ******/
+.star-ratings-css {
+	unicode-bidi: bidi-override;
+	color: #c5c5c5;
+	font-size: 25px;
+	height: 25px;
+	width: 100px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0;
+	text-shadow: 0px 1px 0 #a2a2a2; 
+}
+
+.star-ratings-css .star-ratings-css-top {
+	color: #e7711b;
+	padding: 0;
+	text-shadow: 0px 1px 0 #ab5414;
+	position: absolute;
+	z-index: 1;
+	display:block;
+	left: 0px;
+	overflow: hidden;
+}
+
+.star-ratings-css .star-ratings-css-bottom {
+	z-index: 0;
+}
+
+.star-ratings-css .star-ratings-css-top,
+.star-ratings-css .star-ratings-css-bottom {
+	white-space: nowrap;
+}
+
+td.gr-user .data {
+	display: inline-block;
+}
+
+td.gr-user .data {
+	vertical-align: middle;
+}

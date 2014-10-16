@@ -1,0 +1,1 @@
+ReqSeats = new Meteor.Collection('reqSeats');

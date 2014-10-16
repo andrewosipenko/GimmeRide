@@ -1,0 +1,18 @@
+<template name="reqSeatList">
+	<div class="gr-seat-list">
+		<table class="rwd-table gr-table">
+			<thead>
+				<tr>
+					<th class="gr-user">Rider</th>
+					<th class="gr-time">Time of Request</th>
+					<th class="gr-cmd">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each this}}
+					{{> reqSeatItem}}
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>

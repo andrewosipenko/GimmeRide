@@ -1,0 +1,40 @@
+<template name="header">
+	<div class="navbar navbar-default" role="navigation">
+	    <div class="navbar-header">
+	        <a class="navbar-brand" href="#">GimmeRide</a>
+	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+	    </div>
+	    <div class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	            <li class="{{activeRouteClass 'rideEventsSearchPage'}}">
+	            	<a href="{{pathFor 'rideEventsSearchPage'}}">Search</a>
+	            </li>
+	            {{#if currentUser}}
+		            {{#if isDriver}}
+			            <li class="{{activeRouteClass 'driverRideEventListPage'}}">
+			            	<a href="{{pathFor 'driverRideEventListPage'}}">Current Rides</a>
+			            </li>
+		            {{/if}}
+		            {{#unless isDriver}}
+			            <li class="{{activeRouteClass 'myRide'}}">
+			            	<a href="{{pathFor 'myRide'}}">Current Ride</a>
+			            </li>
+		            {{/unless}}
+	                {{#if isDriver}}
+		            	<li class="{{activeRouteClass 'driverProfile'}}">
+		            		<a href="{{pathFor 'driverProfile'}}">Profile</a>
+		            	</li>
+		            {{/if}}
+	            {{/if}}
+	        </ul>
+	        <ul class="nav navbar-nav navbar-right">
+	            {{> loginButtons }}
+	        </ul>
+	    </div>
+	</div>
+</template>

@@ -1,0 +1,27 @@
+<template name="driverRideList">
+	<table class="rwd-table gr-table pull-left">
+		<thead>
+			<tr>
+				<th class="gr-ride">Route</th>
+				<th class="gr-time">Time</th>
+				<th class="gr-price">Price</th>
+				<th class="gr-cmd">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="ride in rides">
+				<td class="gr-ride"><a href="#">[[placeFrom(ride)]] - [[placeTo(ride)]]</a></td>
+				<td class="gr-time">
+					<div>[[helpers.rideDateStr(ride)]]</div>
+					<div>[[helpers.rideTimeStr(ride)]]</div>
+				</td>
+				<td class="gr-price">[[helpers.ridePriceStr(ride)]]</td>
+				<td class="gr-cmd">
+					<button class="btn btn-default btn-sm gr-update" 
+					   data-toggle="modal" data-target="#rideDlg" ng-click="onUpdateRide(ride)">update</button>
+					<button class="btn btn-default btn-sm gr-delete">delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</template>

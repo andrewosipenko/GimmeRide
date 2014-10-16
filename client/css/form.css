@@ -1,0 +1,19 @@
+.gr-form {
+	position: relative;
+}
+
+.gr-form-edit {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: -20px -50px 0 0;
+	cursor: pointer;
+}
+
+.gr-form-edit .gr-save-cancel {
+	margin-right: -25px;
+}
+
+.gr-form-edit .gr-save-cancel span {
+	margin-right: 10px;
+}

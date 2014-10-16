@@ -1,0 +1,43 @@
+<template name="reqSeatItem">
+	<tr>
+		<td class="gr-user">
+			<a target="_blank" href="{{pathFor 'userPage'}}">
+				<img class="img-rounded gr-table-icon">
+				<div class="data">
+					<span>{{userName}}</span>
+					<div class="star-ratings-css">
+	  					<div class="star-ratings-css-top" style="width: {{userRating}}%">
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  					</div>
+	  					<div class="star-ratings-css-bottom">
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  					</div>
+					</div>
+				</div>
+			</a>
+		</td>
+		<td class="gr-time">{{reqTime}}</td>
+		<td class="gr-cmd {{#if awaiting}}gr-cmd-2{{/if}}">
+			{{#if awaiting}}
+				<button href="#" class="btn btn-default btn-sm gr-accept">accept</button>
+				<button href="#" class="btn btn-default btn-sm gr-reject">reject</button>
+			{{else}}
+				{{#if accepted}}
+					<button class="btn btn-default btn-sm gr-cancel">cancel</button>
+				{{else}}
+					{{#if rejected}}
+						<button href="#" class="btn btn-default gr-cancel-reject">cancel</button>
+					{{/if}}
+				{{/if}}
+			{{/if}}
+		</td>
+	</tr>
+</template>

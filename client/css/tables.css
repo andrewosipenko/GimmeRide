@@ -1,0 +1,19 @@
+.gr-table {
+	font-size: 16px;
+}
+
+.table>tbody>tr.gr-table-row > td {
+	padding: 12px 8px;
+	vertical-align: middle;
+}
+
+.gr-table-icon {
+	margin-right: 5px;
+	width: 50px;
+    height: 50px;
+}
+
+td.gr-seats,
+th.gr-seats {
+	text-align: center;	
+}

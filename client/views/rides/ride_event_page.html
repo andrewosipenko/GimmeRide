@@ -1,0 +1,103 @@
+<template name="rideEventPage">
+	<div class="gr-container">
+		<div class="gr-header">
+			<div class="col">
+				<div class="gr-place">
+					<a href="">{{placeFrom}} - {{placeTo}}</a>
+					<div class="gr-thru">
+						<small>through</small>
+						<a href="#">Stolbczy</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="title">date</div>
+				<div class="gr-date">
+					{{dateStr}}
+				</div>
+			</div>
+			<div class="col">
+				<div class="title">depature</div>
+				<div class="gr-time">
+					{{startTimeStr}}
+				</div>
+			</div>
+			<div class="col">
+				{{#if requested}}
+					<div class="title">status</div>
+					{{#if awaiting}}
+						<div class="gr-status label label-info">Awaiting</div>
+					{{else}}
+						{{#if accepted}} 
+							<div class="gr-status label label-success">Going</div>
+						{{else}}
+							{{#if rejected}}
+								<div class="gr-status label label-danger">Rejected</div>
+							{{/if}}
+						{{/if}}
+					{{/if}}
+				{{else}}
+					<div class="title">places left</div>
+					<div class="gr-seats">{{availSeats}}</div>
+				{{/if}}
+			</div>
+			{{#if isRider}}
+				{{#unless rejected}}
+					<div class="col">
+						{{#if requested}}				
+							<button type="button" class="btn btn-default gr-cancel">Cancel</button>
+						{{else}}
+							{{#if availSeats}}
+								<button type="button" class="btn btn-default gr-req">Request</button>
+							{{/if}}
+						{{/if}}
+					</div>
+				{{/unless}}
+			{{/if}}
+		</div>
+		<div class="gr-widget">
+			<div class="row">
+				<div class="col-md-6 gr-user">
+					<a href="{{pathFor 'driverPage' driverId = ride.driverId}}">
+						<img class="img-rounded">
+						<div class="data">
+							<span>{{driverName}}</span>
+							<div class="star-ratings-css">
+			  					<div class="star-ratings-css-top" style="width: {{driverRating}}%">
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  					</div>
+			  					<div class="star-ratings-css-bottom">
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  					</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-6 gr-ride">
+					<div class="gr-fields">
+						<div class="row">
+							<div class="name">Car</div>
+							<div class="value">{{ride.car}}</div>
+						</div>
+						<div class="row">
+							<div class="name">All Seats</div>
+							<div class="value">{{ride.maxSeats}}</div>
+						</div>
+						<div class="row">
+							<div class="name">Taken</div>
+							<div class="value">{{takenSeats}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

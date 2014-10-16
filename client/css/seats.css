@@ -1,0 +1,36 @@
+.gr-seat-list  {
+	margin-bottom: 70px;
+}
+
+.gr-seat-list  table {
+	width: 550px;
+}
+
+button.gr-reserve,
+.gr-header button.gr-req,
+.gr-header button.gr-cancel {
+	font-size: 24px;
+}
+
+.gr-header .gr-time, 
+.gr-header .gr-date,
+.gr-header .gr-seats,
+.gr-header .gr-status,
+.gr-header .gr-place {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.gr-header .gr-thru {
+	font-size: smaller;
+	margin-top: 5px;
+}
+
+.gr-header .gr-seats {
+	font-size: 35px;
+	padding: 0 10px;
+}
+
+.gr-header .gr-status {
+	font-size: 100%;
+}

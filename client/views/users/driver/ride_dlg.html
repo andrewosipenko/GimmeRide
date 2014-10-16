@@ -1,0 +1,73 @@
+<template name="rideDlg">
+	<div class="modal fade" id="rideDlg" tabindex="-1" role="dialog" aria-labelledby="rideDlgLabel" aria-hidden="true">
+		 <div class="modal-dialog">
+		    <div class="modal-content">
+		        <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">
+			        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 ng-show="new" class="modal-title gr-create">New route</h4>
+			        <h4 ng-show="!new" class="modal-title gr-update">Update route</h4>
+		      	</div>
+		        <div class="modal-body">
+		        	<form class="gr-form form-inline" role="form">
+					    <div class="form-group">
+					    	<div class="gr-ride-form-col">
+								<select ng-select-place countries="Беларусь" name="from" class="gr-from" placeholder="From" model="from" init-value="[[from]]"></select>
+							</div>
+							<div class="gr-ride-form-col pull-right">
+								<select ng-select-place countries="Беларусь" name="to" class="gr-to" placeholder="To" model="to" init-value="[[to]]"></select>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="gr-ride-form-col">
+								<div class="btn-group pull-left" data-toggle="buttons">
+									<label class="btn btn-default" ng-class="{'active': !recurring}" ng-click="recurring=false">
+									    <input type="radio" name="recurring" value="false"> Once
+									</label>
+									<label class="btn btn-default" ng-class="{'active': recurring}" ng-click="recurring=true">
+									    <input type="radio" name="recurring" value="true"> Recurring
+									</label>
+								</div>
+								<div ng-select-date ng-show="!recurring" class="input-group date gr-date pull-right">
+									<input type="text" name="when" class="form-control" placeholder="Date" ng-model="date">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+								</div>
+								<select ng-select-period ng-show="recurring" class="form-control gr-period pull-right" placeholder="Period" init-value="recur" model="recur">
+								</select>
+							</div>
+							<div class="gr-ride-form-col pull-right">
+						    	<select ng-select-time name="startTimeMins" class="gr-time pull-left" placeholder="Time" init-value="startTimeMins" model="startTimeMins">
+						    	</select>
+					  			<input type="number" name="durationMins" class="form-control pull-right" placeholder="Duration" ng-model="durationHours">
+					  		</div>
+						</div>
+						<div class="form-group">
+							<div class="gr-ride-form-col">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default" ng-class="{'active': free}" ng-click="free=true">
+									    <input type="radio" name="free" value="true" checked> Free
+									</label>
+									<label class="btn btn-default" ng-class="{'active': !free}" ng-click="free=false">
+									    <input type="radio" name="free" value="false"> Paid
+									</label>
+								</div>
+								<input ng-show="!free" type="number" name="price" class="form-control pull-right" placeholder="Value" ng-model="price">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="gr-ride-form-col">
+								<input type="text" name="car" class="form-control" placeholder="Car" ng-model="car">
+								<input type="number" name="maxSeats" class="form-control pull-right" placeholder="Max seats" ng-model="maxSeats">
+							</div>
+						</div>
+					</form>
+		        </div>
+		        <div class="modal-footer">
+		            <button ng-show="!new" type="button" class="btn btn-primary gr-update" ng-click="update()">Update</button>
+			        <button ng-show="new" type="button" class="btn btn-primary gr-create" ng-click="create()">Create</button>
+			       	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      	</div>
+		    </div>
+		</div>
+	</div>
+</template>

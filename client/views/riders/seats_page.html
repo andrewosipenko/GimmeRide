@@ -1,0 +1,52 @@
+<template name="seatsPage">
+	<div class="gr-container">
+		<div class="gr-header">
+			<div class="row">
+				<div class="col">
+					<div class="gr-place">
+						<a href="">{{placeFrom}} - {{placeTo}}</a>
+						<div class="gr-thru">
+							<small>through</small>
+							<a href="#">Stolbczy</a>
+						</div>
+					</div>
+					<!-- <div class="gr-time">
+						<small>at</small>{{startTime}} - <small>arrival</small>{{endTime}}
+					</div> -->
+				</div>
+				<div class="col">
+					<div class="title">date</div>
+					<div class="gr-date">
+						{{dateStr}}
+					</div>
+				</div>
+				<div class="col">
+					<div class="title">depature</div>
+					<div class="gr-time">
+						{{startTimeStr}}
+					</div>
+				</div>
+				<div class="col">
+					<div class="title">places left</div>
+					<div class="gr-seats">{{availSeats}}</div>
+				</div>
+				<div class="col">
+					<button type="button" class="btn btn-default gr-reserve">
+						Reserve seat
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="gr-body">
+			{{#with acceptedSeats}}
+				{{> reqSeatList}}
+			{{/with}}
+			{{#with awaitSeats}}
+				{{> reqSeatList}}
+			{{/with}}
+			{{#with rejectedSeats}}
+				{{> reqSeatList}}
+			{{/with}}
+		</div>
+	</div>
+</template>

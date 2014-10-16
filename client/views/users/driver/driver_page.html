@@ -1,0 +1,40 @@
+<template name="driverPage">
+    <div class="gr-container">
+		<div class="gr-widget">
+			<div class="row">
+				<div class="col-md-6 gr-user">
+					<a href="{{pathFor 'driverPage' driverId = ride.driverId}}">
+						<img class="img-rounded">
+						<div class="data">
+							<span>{{name}} {{surname}}</span>
+							<div class="star-ratings-css">
+			  					<div class="star-ratings-css-top" style="width: {{driverRating}}%">
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  					</div>
+			  					<div class="star-ratings-css-bottom">
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  						<span>★</span>
+			  					</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-6">
+					<div class="gr-fields">
+						<div class="row">
+							<div class="name">Age</div>
+							<div class="value">{{age}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

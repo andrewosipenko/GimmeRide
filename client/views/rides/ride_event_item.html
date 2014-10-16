@@ -1,0 +1,46 @@
+<template name="rideEventItem">
+	<tr>
+		<td class="gr-ride">
+			<a href="#">{{placeFrom}} - {{placeTo}}</a>
+		</td>
+		<td class="gr-user gr-driver">
+			<a target="_blank" href="{{pathFor 'driverPage' driverId = driver._id}}">
+				<img class="img-rounded gr-table-icon">
+				<div class="data">
+					<span>{{driverName}}</span>
+					<div class="star-ratings-css">
+	  					<div class="star-ratings-css-top" style="width: {{driverRating}}%">
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  					</div>
+	  					<div class="star-ratings-css-bottom">
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  						<span>★</span>
+	  					</div>
+					</div>
+				</div>
+			</a>
+		</td>
+		<td class="gr-time">
+			<div>{{dateStr}}</div>
+			<div>{{timeStr}}</div>
+		</td>
+		<td class="gr-price">{{priceStr}}</td>
+		<td class="gr-seats">
+			<strong>{{availSeats}}</strong>
+		</td>
+		<td class="gr-cmd">
+			{{#if isDriver}}
+				<a href="{{pathFor 'seatsPage'}}">more >></a>
+			{{else}}
+				<a href="{{pathFor 'rideEventPage'}}">more >></a>
+			{{/if}}
+		</td>
+	</tr>
+</template>

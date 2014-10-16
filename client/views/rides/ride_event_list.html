@@ -1,0 +1,19 @@
+<template name="rideEventList">
+	<table class="rwd-table gr-table">
+		<thead>
+			<tr>
+				<th class="gr-ride">Route</th>
+				<th class="gr-driver">Driver</th>
+				<th class="gr-time">Time</th>
+				<th class="gr-price">Price</th>
+				<th class="gr-seats">Seats left</th>
+				<th class="gr-cmd"></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this}}
+				{{> rideEventItem}}
+			{{/each}}
+		</tbody>
+	</table>
+</template>

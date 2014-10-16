@@ -1,0 +1,48 @@
+@import "http://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+body {
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.gr-container {
+	padding: 10px 35px 45px 35px;
+}
+
+.rwd-table {
+	margin: 0;
+}
+
+.rwd-table a {
+	color: #84C1F6;
+}
+
+.rwd-table button {
+	color: #34495E;
+}
+
+.star-ratings-css {
+	margin: 0;
+	font-size: 16px;
+	height: auto;
+}
+
+.tab-content {
+	padding: 30px 0;
+}
+
+.datepicker {
+	z-index: 99999 !important;
+}
+
+.selectize-dropdown-content div span.place {
+	margin-right: 10px;
+}
+
+.selectize-dropdown-content div span.region {
+	font-size: smaller;
+}
+
+.spinner {
+	margin-top: 0;
+}

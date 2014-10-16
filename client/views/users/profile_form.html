@@ -1,0 +1,40 @@
+<template name="profileForm">
+	<form class="gr-form gr-widget" role="form">
+		<div class="row">
+			<div class="form-group col-md-5 gr-user">
+				<img class="img-rounded">
+				<div class="data">
+					<a href="#">change</a>
+				</div>
+			</div>
+			<div class="form-group col-md-7">
+				<div class="gr-fields">
+					<div class="row">
+						<div class="name">Name</div>
+						<div class="value">{{profile.name}}</div>
+						<input type="text" class="form-control" id="inputName" placeholder="Name" value="{{profile.name}}">
+					</div>
+					<div class="row">
+						<div class="name">Surname</div>
+						<div class="value">{{profile.surname}}</div>
+						<input type="text" class="form-control" id="inputSurname" placeholder="Surname" value="{{profile.surname}}">
+					</div>
+					<div class="row">
+						<div class="name">Age</div>
+						<div class="value">{{profile.age}}</div>
+						<input type="text" class="form-control" id="inputAge" placeholder="Age" value="{{profile.age}}">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gr-form-edit">
+	  		<div class="gr-edit">
+		  		<span class="glyphicon glyphicon-pencil gr-edit-icon"></span>
+		  	</div>
+	  		<div class="gr-save-cancel">
+	  			<span class="glyphicon glyphicon-ok gr-save-icon"></span>
+	  			<span class="glyphicon glyphicon-remove gr-cancel-icon"></span>
+	  		</div>
+  		</div>
+	</form>
+</template>
