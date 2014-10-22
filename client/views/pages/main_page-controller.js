@@ -51,7 +51,7 @@ function more(callback) {
 	}, this));
 }
 
-angular.module('searchPage', ['angular-meteor']).controller('SearchRidesController', ['$scope', '$location',
+angular.module('mainPage', ['angular-meteor']).controller('MainPageController', ['$scope', '$location',
 	function($scope, $location) {
 		var params = $location.search();
 		var dateMs = parseInt(params.date);

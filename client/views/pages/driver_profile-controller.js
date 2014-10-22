@@ -1,4 +1,3 @@
-
 function onUpdateRide(ride) {
 	angular.extend(this, {
 		new: false,

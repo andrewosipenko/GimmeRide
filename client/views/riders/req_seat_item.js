@@ -5,7 +5,7 @@ Template.reqSeatItem.helpers({
 	},
 	userRating: function() {
 		var user = Meteor.users.findOne(this.userId);
-		return (user.profile.rating / 5) * 100;
+		return helpers.ratingCents(user.profile.rating);
 	},
 	reqTime: function () {
 		return moment(this.reqTimeMs).format('L HH:mm');

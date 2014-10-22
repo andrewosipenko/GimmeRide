@@ -11,8 +11,8 @@
 	    </div>
 	    <div class="navbar-collapse collapse">
 	        <ul class="nav navbar-nav">
-	            <li class="{{activeRouteClass 'rideEventsSearchPage'}}">
-	            	<a href="{{pathFor 'rideEventsSearchPage'}}">Search</a>
+	            <li class="{{activeRouteClass 'mainPage'}}">
+	            	<a href="{{pathFor 'mainPage'}}">Search</a>
 	            </li>
 	            {{#if currentUser}}
 		            {{#if isDriver}}
@@ -26,8 +26,8 @@
 			            </li>
 		            {{/unless}}
 	                {{#if isDriver}}
-		            	<li class="{{activeRouteClass 'driverProfile'}}">
-		            		<a href="{{pathFor 'driverProfile'}}">Profile</a>
+		            	<li class="{{activeRouteClass 'driverProfilePage'}}">
+		            		<a href="{{pathFor 'driverProfilePage'}}">Profile</a>
 		            	</li>
 		            {{/if}}
 	            {{/if}}

@@ -13,7 +13,7 @@ function findRideEvents(from, to, minDateMs, maxDateMs) {
 	});
 }
 
-Template.rideEventsSearchPage.helpers({
+Template.mainPage.helpers({
  	rideEvents: function() {
  		var search = Session.get('search');
  		return search &&

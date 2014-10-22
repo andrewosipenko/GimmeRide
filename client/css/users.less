@@ -1,0 +1,113 @@
+.gr-profile {
+	.gr-form {
+		.form-control, .gr-save-cancel {
+			display: none;
+		}
+
+		input {
+			width: 150px;
+		}
+
+		.value {
+			padding-left: 12px; 
+		}
+
+		.gr-edit {
+			display: block;
+		}
+
+		.form-group {
+			display: inline-block;
+			margin: 0;
+			vertical-align: top;
+		}
+
+		&.edit {
+			.form-control {
+				display: inline;
+			}
+
+			.value, .gr-edit {
+				display: none;
+			}
+
+			.gr-save-cancel {
+				display: block;
+			}
+		}
+	}
+}
+
+/***** Create/Update Ride Dlg ******/
+#rideDlg {
+	 .modal-dialog {
+		width: 720px;
+	}
+
+	.form-group {
+		display: block;
+		margin-bottom: 30px;
+	}
+
+	.form-group:last-child {
+		margin-bottom: 0;
+	}
+
+	.gr-ride-form-col {
+		width: 330px;
+		display: inline-block;
+	}
+
+	.gr-ride-form-col > div,
+	.gr-ride-form-col > input {
+		width: 49%;
+	}
+
+	.gr-ride-form-col .gr-from,
+	.gr-ride-form-col .gr-to {
+		width: 100%;
+	}
+}
+
+#rides .gr-table {
+	width: 700px;
+	margin-right: 100px;
+}
+
+/***** User Stars Rating ******/
+.star-ratings-css {
+	unicode-bidi: bidi-override;
+	color: #c5c5c5;
+	font-size: 25px;
+	height: 25px;
+	width: 100px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0;
+	text-shadow: 0px 1px 0 #a2a2a2; 
+
+	.star-ratings-css-top {
+		color: #e7711b;
+		padding: 0;
+		text-shadow: 0px 1px 0 #ab5414;
+		position: absolute;
+		z-index: 1;
+		display:block;
+		left: 0px;
+		overflow: hidden;
+	}
+
+	.star-ratings-css-bottom {
+		z-index: 0;
+	}
+
+	.star-ratings-css-top,
+	.star-ratings-css-bottom {
+		white-space: nowrap;
+	}
+}
+
+td.gr-user .data {
+	display: inline-block;
+	vertical-align: middle;
+}

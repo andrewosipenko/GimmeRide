@@ -1,4 +1,4 @@
-Template.driverProfile.events({
+Template.driverProfilePage.events({
 	'click .gr-form-edit .gr-edit-icon': function () {
 		$('.gr-form').addClass('edit');
 	},

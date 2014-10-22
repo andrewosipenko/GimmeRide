@@ -1,15 +1,7 @@
-Template.seatsPage.helpers({
+Template.rideSeatsPage.helpers({
  	ride: function() {
  		return Rides.findOne(this.rideId);
  	},
- 	placeFrom: function() {
-		var ride = Rides.findOne(this.rideId);
-		return ride && utils.getPlaceName(ride.from);
-	},
-	placeTo: function() {
-		var ride = Rides.findOne(this.rideId);
-		return ride && utils.getPlaceName(ride.to);
-	},
 	dateStr: function() {
 		return this.dateMs && moment(this.dateMs).format('L');
 	},
@@ -18,7 +10,7 @@ Template.seatsPage.helpers({
  		var ride = Rides.findOne(this.rideId);
  		return ride && utils.getTimeStr(ride.startTimeMins);
  	},
- 	endTime: function() {
+ 	endTimeStr: function() {
  		var ride = Rides.findOne(this.rideId);
  		return ride && utils.getTimeStr(ride.startTimeMins + ride.durationMins);
  	},
@@ -33,7 +25,7 @@ Template.seatsPage.helpers({
  	}
 });
 
-Template.seatsPage.events({
+Template.rideSeatsPage.events({
 	'click .gr-reserve': function() {
 
 	}

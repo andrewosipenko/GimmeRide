@@ -22,7 +22,7 @@
 			var ride = Rides.findOne(this.rideId);
 			if (ride) {
 				var driver = Meteor.users.findOne(ride.driverId);
-				return (driver.profile.rating / 5) * 100;
+				return helpers.ratingCents(driver.profile.rating);
 			}	
 		},
 		takenSeats: function() {
@@ -30,14 +30,6 @@
  				rideEventId: this._id,
  				status: consts.Status.ACCEPTED
  			}).count();
-		},
-		placeFrom: function() {
-			var ride = Rides.findOne(this.rideId);
-			return ride && utils.getPlaceName(ride.from);
-		},
-		placeTo: function() {
-			var ride = Rides.findOne(this.rideId);
-			return ride && utils.getPlaceName(ride.to);
 		},
 		ride: function() {
 			return Rides.findOne(this.rideId);
