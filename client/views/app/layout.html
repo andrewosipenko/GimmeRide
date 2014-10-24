@@ -1,8 +1,17 @@
 <template name="layout">
- 	<div class="container">
- 		{{>header}}
-	 	<div id="main" class="row-fluid">
-	 		{{>yield}}
+	<div class="wrapper">
+		{{> nav}}
+		<div ng-controller="{{controllerName}}">
+			<header>
+				{{> yield "headerContent"}}
+			</header>
+		 	<div id="body" class="row-fluid">
+		 		{{> yield}}
+		 	</div>
 	 	</div>
+	 	<div class="sticky"></div>
  	</div>
+ 	<footer>
+		{{> footer}}
+	</footer>
 </template>

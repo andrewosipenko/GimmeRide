@@ -1,4 +1,4 @@
-Template.header.helpers({
+Template.nav.helpers({
  	isDriver: function() {
  		var currentUser = Meteor.user();
  		return currentUser && currentUser.profile.type == consts.Users.DRIVER;

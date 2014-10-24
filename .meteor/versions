@@ -14,6 +14,7 @@ boilerplate-generator@1.0.0
 callback-hook@1.0.0
 check@1.0.1
 chhib:selectize-bootstrap-3@0.0.1
+chrismbeckett:fontawesome4@4.2.2
 ctl-helper@1.0.3
 ctl@1.0.1
 ddp@1.0.9
@@ -69,6 +70,7 @@ spacebars-compiler@1.0.2
 spacebars@1.0.2
 srp@1.0.0
 stylus@1.0.4
+tanis:bootstrap-social@0.1.1
 templating@1.0.7
 tracker@1.0.2
 ui@1.0.3
@@ -77,3 +79,4 @@ urigo:angular@0.4.4
 url@1.0.0
 webapp-hashing@1.0.0
 webapp@1.1.2
+wizonesolutions:underscore-string@1.0.0

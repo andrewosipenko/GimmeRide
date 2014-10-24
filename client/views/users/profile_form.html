@@ -1,40 +1,38 @@
 <template name="profileForm">
-	<form class="gr-form gr-widget" role="form">
+	<form class="form-horizontal gr-form" role="form">
 		<div class="row">
-			<div class="form-group col-md-5 gr-user">
+			<div class="form-group col-md-3 gr-user">
 				<img class="img-rounded">
 				<div class="data">
 					<a href="#">change</a>
-				</div>
+				</div>	
 			</div>
-			<div class="form-group col-md-7">
-				<div class="gr-fields">
-					<div class="row">
-						<div class="name">Name</div>
-						<div class="value">{{profile.name}}</div>
-						<input type="text" class="form-control" id="inputName" placeholder="Name" value="{{profile.name}}">
+			<div class="form-group col-md-9">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-5">
+						<input class="form-control" type="text" placeholder="Name" value="{{profile.name}}">
+						<span class="form-highlight"></span>
+						<span class="form-bar"></span>
 					</div>
-					<div class="row">
-						<div class="name">Surname</div>
-						<div class="value">{{profile.surname}}</div>
-						<input type="text" class="form-control" id="inputSurname" placeholder="Surname" value="{{profile.surname}}">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Surname</label>
+					<div class="col-sm-5">
+						<input class="form-control" type="text" placeholder="Surname" value="{{profile.surname}}">
+						<span class="form-highlight"></span>
+						<span class="form-bar"></span>
 					</div>
-					<div class="row">
-						<div class="name">Age</div>
-						<div class="value">{{profile.age}}</div>
-						<input type="text" class="form-control" id="inputAge" placeholder="Age" value="{{profile.age}}">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Age</label>
+					<div class="col-sm-5">
+						<input class="form-control" type="number" placeholder="Age" value="{{profile.age}}">
+						<span class="form-highlight"></span>
+						<span class="form-bar"></span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="gr-form-edit">
-	  		<div class="gr-edit">
-		  		<span class="glyphicon glyphicon-pencil gr-edit-icon"></span>
-		  	</div>
-	  		<div class="gr-save-cancel">
-	  			<span class="glyphicon glyphicon-ok gr-save-icon"></span>
-	  			<span class="glyphicon glyphicon-remove gr-cancel-icon"></span>
-	  		</div>
-  		</div>
 	</form>
 </template>

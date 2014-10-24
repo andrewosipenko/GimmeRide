@@ -1,4 +1,4 @@
-<template name="header">
+<template name="nav">
 	<div class="navbar navbar-default" role="navigation">
 	    <div class="navbar-header">
 	        <a class="navbar-brand" href="#">GimmeRide</a>
@@ -35,6 +35,7 @@
 	        <ul class="nav navbar-nav navbar-right">
 	            {{> loginButtons }}
 	        </ul>
+	        <a href="{{pathFor 'newRidePage'}}" class="btn btn-raised btn-default gr-create">Create Ride</a>
 	    </div>
 	</div>
 </template>

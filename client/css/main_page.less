@@ -1,0 +1,76 @@
+header {
+	.gr-main {
+		.jumbotron {
+			height: 500px;
+		}	
+	}
+
+	.gr-search-form {
+		position: absolute;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		bottom: 30px;
+
+		form {
+			padding: 25px 35px;
+
+			.form-group {
+				text-align: center;
+				margin-top: 0;
+				width: 100%;
+			}
+		}
+
+		.gr-place {
+			width: 100%;
+		}
+
+		.selectize-input {
+			vertical-align: middle;
+		}
+
+		.input-group {
+			width: 100%;
+		}
+
+		.gr-date {
+			.form-control,
+			.input-group-addon {
+				color: #fff;
+			}
+		}
+
+		.no-float {
+			float: none;
+			display: inline-block;
+		}
+	}
+}
+
+#body {
+	.gr-main {
+		.gr-search-results {
+			position: relative;
+
+			table {
+				width: 100%;
+			}
+
+			&> div > .spinner {
+				position: absolute;
+				left: 50%;
+				top: 100px;
+			}
+		}
+
+		.gr-search-more {
+			text-align: center;
+			margin-top: 40px;
+			display: none;
+
+			a {
+				cursor: pointer;
+			}
+		}
+	}
+}

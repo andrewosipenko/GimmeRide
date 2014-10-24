@@ -1,0 +1,39 @@
+<template name="mainPageHeader">
+	<div class="gr-main">
+		<div class="gr-brd"></div>
+		<div class="jumbotron">
+			<div class="container">
+				<div class="gr-intro">
+					<h1>Fine your ride</h1>
+				</div>
+			</div>
+		</div>
+		<div class="gr-search-form">
+			<div class="container">
+				<form name="form" class="form-inline gr-form" role="form">
+					<div class="form-group">
+						<div class="col-md-3 no-float">
+							<div class="input-group">
+								<select ng-select-place countries="Беларусь" ng-model="fromVal" model="from" init-value="from" name="from" class="gr-place" placeholder="Select From" required>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3 no-float">
+							<div class="input-group">
+		      					<select ng-select-place countries="Беларусь" ng-model="toVal" model="to" init-value="to" name="to" class="gr-place" placeholder="Select To" required>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3 no-float">
+							<div ng-select-date class="input-group date gr-date">
+								<input type="text" name="when" ng-model="date" class="form-control" placeholder="Date" required>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+							</div>
+						</div>
+						<button ng-click="search()" type="button" class="btn btn-default col-md-1 pull-right" ng-disabled="form.$invalid">Search</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</template>

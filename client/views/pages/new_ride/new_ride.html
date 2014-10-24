@@ -1,0 +1,96 @@
+<template name="newRidePage">
+	<div class="gr-newride">
+		<div class="container">
+			<form class="gr-form" role="form">
+				<div class="form-group">
+					<div class="row">
+				    	<div class="col-md-6">
+							<select ng-select-place countries="Беларусь" name="from" class="gr-from" placeholder="From" model="from" init-value="from"></select>
+						</div>
+						<div class="col-md-6 pull-right">
+							<select ng-select-place countries="Беларусь" name="to" class="gr-to" placeholder="To" model="to" init-value="to"></select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6 col">
+							<div class="btn-group pull-left" data-toggle="buttons">
+								<label class="btn btn-default active" ng-class="{'active': !recurring}" ng-click="recurring=false">
+								    <input type="radio" name="recurring" value="false"> Once
+								</label>
+								<label class="btn btn-default" ng-class="{'active': recurring}" ng-click="recurring=true">
+								    <input type="radio" name="recurring" value="true"> Recur
+								</label>
+							</div>
+							<div ng-select-date ng-show="!recurring" class="input-group date gr-date pull-right">
+								<input type="text" name="when" class="form-control" placeholder="Date" ng-model="date">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+							</div>
+							<select ng-select-period ng-show="recurring" class="form-control gr-period pull-right" placeholder="Period" init-value="recur" model="recur">
+							</select>
+						</div>
+						<div class="col-md-6 col">
+					    	<select ng-select-time name="startTimeMins" class="gr-time pull-left" placeholder="Time" init-value="startTimeMins" model="startTimeMins">
+					    	</select>
+					    	<div class="input-group pull-right">
+				  				<input type="number" name="durationMins" class="form-control" placeholder="Duration" ng-model="durationHours">
+				  				<span class="form-highlight"></span>
+								<span class="form-bar"></span>
+								<label class="sr-only" for="durationMins">Duration</label>
+				  			</div>
+				  		</div>
+			  		</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6 col">
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-default active" ng-class="{'active': free}" ng-click="free=true">
+								    <input type="radio" name="free" value="true" checked> Free
+								</label>
+								<label class="btn btn-default" ng-class="{'active': !free}" ng-click="free=false">
+								    <input type="radio" name="free" value="false"> Paid
+								</label>
+							</div>
+							<input ng-show="!free" type="number" name="price" class="form-control pull-right" placeholder="Value" ng-model="price">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6 col">
+							<div class="input-group pull-left">
+								<input type="text" name="car" class="form-control" placeholder="Car" ng-model="car" required>
+								<span class="form-highlight"></span>
+								<span class="form-bar"></span>
+								<label class="sr-only" for="car">Car</label>
+							</div>
+							<div class="input-group pull-right">
+								<input type="number" name="maxSeats" class="form-control" placeholder="Max seats" ng-model="maxSeats">
+								<span class="form-highlight"></span>
+								<span class="form-bar"></span>
+								<label class="sr-only" for="maxSeats">Max seats</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="gr-cmd">
+					<button class="btn btn-raised ripple-effect btn-primary">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</template>
+
+<template name="newRidePageHeader">
+	<div class="gr-newride">
+		<div class="jumbotron">
+			<div class="container">
+				<div class="gr-intro">
+					<h3>Create own ride</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

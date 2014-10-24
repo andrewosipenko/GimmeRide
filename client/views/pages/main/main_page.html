@@ -1,0 +1,22 @@
+<template name="mainPage">
+	<div class="gr-main">
+		<div class="container">
+			<div class="gr-search-results">
+				<div ng-show="!loading">
+					{{#unless isEmpty rideEvents}}
+						{{> rideEventList rideEvents}}
+					{{/unless}}
+					<div class="gr-search-more" style="display: {{#if noMore}}none{{else}}block{{/if}}">
+						<a ng-click="more()" ng-show="!moreLoading">Load More</a>
+						<div ng-show="moreLoading">
+							{{> spinner}}
+						</div>
+					</div>
+				</div>
+				<div ng-show="loading">
+					{{> spinner}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

@@ -14,6 +14,7 @@ function searchRideEvents(options, callback) {
 }
 
 function search(callback) {
+	console.log('search');
 	if (!this.loading) {
 		this.loading = true;
     	var options = {

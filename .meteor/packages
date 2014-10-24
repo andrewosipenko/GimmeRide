@@ -13,7 +13,10 @@ accounts-facebook
 mrt:moment
 rajit:bootstrap3-datepicker
 babrahams:transactions
-chhib:selectize-bootstrap-3
 urigo:angular
 less
+chhib:selectize-bootstrap-3
+wizonesolutions:underscore-string
+tanis:bootstrap-social
+chrismbeckett:fontawesome4
 
