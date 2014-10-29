@@ -1,0 +1,23 @@
+<template name="userProfilePage">
+	<div class="gr-profile">
+		<div class="container">
+			<ul class="nav nav-tabs" role="tablist">
+			  <li class="active">
+			  	<a href="#profile" role="tab" data-toggle="tab">Profile</a>
+			  </li>
+			  <li>
+			  	<a href="#rides" role="tab" data-toggle="tab">Rides</a>
+			  </li>
+			</ul>
+			<div class="tab-content">
+			    <div class="tab-pane active" id="profile">
+			  		{{> profileForm}}
+			    </div>
+			    <div class="tab-pane" id="rides">
+			  		<ng-template name="driverRideList"></ng-template>
+					{{> rideDlg}}
+			    </div>
+			</div>
+		</div>
+	</div>
+</template>

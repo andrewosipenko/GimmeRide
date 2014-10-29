@@ -16,24 +16,7 @@ function onUpdateRide(ride) {
 	});
 }
 
-function onCreateRide() {
-	angular.extend(this, {
-		new: true,
-	 	from: null,
-	 	to: null,
-	 	recurring: false,
-	 	date: moment().format('L'),
-	 	recur: null,
-	 	startTimeMins: 12 * 60,
-	 	durationHours: null,
-	 	car: null,
-	 	maxSeats: null,
-	 	price: null,
-	 	free: true
-	});
-}
-
-function update() {
+function updateRide() {
 	var options = {
 		rideId: this.rideId,
 		from: this.from.value,
@@ -56,38 +39,34 @@ function update() {
 		});
 }
 
-function create() {
-	var options = {
-		from: this.from.value,
-		to: this.to.value,
-		car: this.car,
-		recurring: this.recurring,
-		when: this.recurring ? this.recur :
-			utils.getUTCDateMs(new Date(this.date)),
-		price: this.price,
-		maxSeats: this.maxSeats,
-		startTimeMins: this.startTimeMins,
-		durationMins: this.durationHours * 60
+function updateProfile() {
+	this.submitted = true;
+	if (!this.form.$invalid) {
+		console.log('valid');
+		var currentUser = Meteor.user();
+		this.loading = true;
+		Meteor.users.update(currentUser._id, {$set: {
+			'profile.name': this.name,
+			'profile.surname': this.surname,
+			'profile.age': this.age,
+			'profile.sex': this.sex,
+		}}, _.bind(function(error) {
+			this.loading = false;
+			this.$apply();
+		}, this));
 	}
-
-	Meteor.call('createRide', options,
-		function(error) {
-			if (!error) {
-				$('#rideDlg').modal('hide');
-			}
-		});
 }
 
-angular.module('driverProfilePage', ['angular-meteor']).controller('DriverProfileController', [
+angular.module('userProfilePage', ['angular-meteor']).controller('UserProfilePageController', [
 	'$scope', '$collection', '$subscribe',
 	function($scope, $collection, $subscribe) {
 		$scope.onUpdateRide = _.bind(onUpdateRide, $scope);
 
-		$scope.onCreateRide = _.bind(onCreateRide, $scope);
+		$scope.updateRide = _.bind(updateRide, $scope);
 
-		$scope.update = _.bind(update, this);
+		$scope.updateProfile = _.bind(updateProfile, $scope);
 
-		$scope.create = _.bind(create, this);
+		$scope.sexes = data.Sexes;
 
 		$subscribe.subscribe('driverProfile');
 		var currentUser = Meteor.user();
@@ -96,15 +75,5 @@ angular.module('driverProfilePage', ['angular-meteor']).controller('DriverProfil
 				driverId: currentUser._id,
 				deleted: {$exists: false}
 			}).bind($scope, 'rides');
-		}
-
-		$scope.placeFrom = function(item) {
-			var place = Places.findOne(item.from);
-			return place && place.name;
-		};
-
-		$scope.placeTo = function(item) {
-			var place = Places.findOne(item.to);
-			return place && place.name;
 		}
  }]);

@@ -9,7 +9,7 @@
 				<div class="data">
 					<span>{{driverName}}</span>
 					<div class="star-ratings-css">
-	  					<div class="star-ratings-css-top" style="width: {{driverRating}}%">
+	  					<div class="star-ratings-css-top" style="width: {{driverRatingWidthStr rideId}}">
 	  						<span>★</span>
 	  						<span>★</span>
 	  						<span>★</span>
@@ -37,9 +37,9 @@
 		</td>
 		<td class="gr-cmd">
 			{{#if isDriver}}
-				<a href="{{pathFor 'rideSeatsPage'}}">more >></a>
+				<a class="btn btn-link" href="{{pathFor 'rideSeatsPage'}}">more info</a>
 			{{else}}
-				<a href="{{pathFor 'rideEventPage'}}">more >></a>
+				<a class="btn btn-link" href="{{pathFor 'rideEventPage'}}">more info</a>
 			{{/if}}
 		</td>
 	</tr>

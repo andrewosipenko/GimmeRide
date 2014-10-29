@@ -7,13 +7,13 @@
 						{{> rideEventList rideEvents}}
 					{{/unless}}
 					<div class="gr-search-more" style="display: {{#if noMore}}none{{else}}block{{/if}}">
-						<a ng-click="more()" ng-show="!moreLoading">Load More</a>
+						<a class="btn btn-link" ng-click="more()" ng-show="!moreLoading">Load More</a>
 						<div ng-show="moreLoading">
 							{{> spinner}}
 						</div>
 					</div>
 				</div>
-				<div ng-show="loading">
+				<div class="spinner-wrapper" ng-show="loading">
 					{{> spinner}}
 				</div>
 			</div>

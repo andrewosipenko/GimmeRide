@@ -1,13 +1,34 @@
+@import "material/material.vars.import.less";
+
 .gr-table {
 	font-size: 16px;
-}
+	font-weight: 300;
+	color: @main-text;
+	background-color: @container-grey;
 
-.table>tbody>tr.gr-table-row > td {
-	padding: 12px 8px;
-	vertical-align: middle;
+	thead>tr>th, tbody>tr>td {
+		text-align: left;
+		vertical-align: middle;
+		padding: 1em;
+		border: none;
+	}
+
+	thead>tr>th {
+		color: @secondary-text;
+	}
+
+	tr {
+		border-top: 1px solid @container-divider;
+  		border-bottom: 1px solid @container-divider;
+	}
+
+	thead>tr:first-child {
+		border-bottom: transparent;
+		border-top: none;
+	}
 }
 
 td.gr-seats,
 th.gr-seats {
-	text-align: center;	
+	text-align: center !important;	
 }

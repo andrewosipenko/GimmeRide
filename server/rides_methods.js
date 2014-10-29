@@ -1,11 +1,11 @@
 (function() {
 	function createRideEvents(rideId, recurring, when, maxSeats) {
 		if (!recurring) {
-			tx.insert(RideEvents, {
+			return tx.insert(RideEvents, {
 				rideId: rideId,
 				availSeats: maxSeats,
 				dateMs: when
-			});
+			}, {instant: true});
 		} else {
 			var periods = _.filter(data.Periods, function(period) {
 				return period.id & when;
@@ -16,13 +16,15 @@
 			var plusMonth = moment().add(30, 'days').format();
 			var recur = moment().recur(plusMonth).every(dayIds).daysOfWeek();
 			var allDates = recur.all();
+			var rideEventId;
 			_.each(allDates, function(date) {
-				tx.insert(RideEvents, {
+				rideEventId = tx.insert(RideEvents, {
 					rideId: rideId,
 					availSeats: maxSeats,
 					dateMs: utils.getUTCDateMs(date.toDate())
 				});
 			});
+			return rideEventId;
 		}
 	}
 
@@ -36,8 +38,8 @@
 				driverId: this.userId,
 				car: options.car,
 				maxSeats: options.maxSeats,
-				from: options.from,
-				to: options.to,
+				from: options.from.value,
+				to: options.to.value,
 				price: options.price,
 				recurring: options.recurring,
 				when: options.when,
@@ -45,13 +47,22 @@
 				durationMins: options.durationMins
 			}, {instant: true});
 
-			createRideEvents(
+			var rideEventId = createRideEvents(
 				rideId,
 				options.recurring,
 				options.when,
 				options.maxSeats);
 
+			Places.upsert(options.from.value, {
+    			$set: { name: options.from.name }
+	    	});
+	    	Places.upsert(options.to.value, {
+	    		$set: { name: options.to.name }
+	    	});
+
 			tx.commit();
+
+			return rideEventId;
 		},
 		updateRide: function(options) {
 			// TODO: check if ride exists and belongs to user.

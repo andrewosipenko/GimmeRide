@@ -59,8 +59,11 @@ Meteor.publish('rideEventSeats', function(rideEventId) {
 	});
 	var rideEvent = RideEvents.findOne(rideEventId);
 
+	var ride = Rides.findOne(rideEvent.rideId);
+
 	return [Rides.find(rideEvent.rideId), RideEvents.find(rideEventId),
-			reqSeats, Meteor.users.find({_id: {$in: userIds}})];	
+			reqSeats, Meteor.users.find({_id: {$in: userIds}}),
+			Places.find({_id: {$in: [ride.from, ride.to]}})];	
 });
 
 

@@ -14,8 +14,8 @@ function searchRideEvents(options, callback) {
 }
 
 function search(callback) {
-	console.log('search');
-	if (!this.loading) {
+	this.submitted = true;
+	if (!this.loading && !this.form.$invalid) {
 		this.loading = true;
     	var options = {
     		from: this.from.value,
@@ -98,5 +98,7 @@ angular.module('mainPage', ['angular-meteor']).controller('MainPageController', 
 	    		$scope.loading = false;
 		    	$scope.$apply();
 	    	});
+	    } else {
+	    	Session.set('search', null);
 	    }
  }]);

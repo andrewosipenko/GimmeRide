@@ -18,13 +18,6 @@
 				return driver && driver.profile.name;
 			}
 		},
-		driverRating: function() {
-			var ride = Rides.findOne(this.rideId);
-			if (ride) {
-				var driver = Meteor.users.findOne(ride.driverId);
-				return helpers.ratingCents(driver.profile.rating);
-			}	
-		},
 		takenSeats: function() {
 			return ReqSeats.find({
  				rideEventId: this._id,

@@ -1,3 +1,5 @@
+@import "material.vars.import.less";
+
 .form-group {
   position: relative;
   margin-top: 35px;
@@ -9,8 +11,9 @@
 }
 
 .form-control {
+  color: @container-text;
   display: block;
-  height: 36px;
+  height: 35px;
   width: 100%; 
   border: none;
   border-radius: 0 !important;
@@ -20,7 +23,7 @@
   padding: 0;
   background-color: transparent;
   box-shadow: none;
-  border-bottom: 1px solid #D7D7D7;
+  border-bottom: 1px solid @control-border;
 }
 
 .input-group .form-control {
@@ -32,7 +35,7 @@
 }
 
 .form-control:focus {
-  border-color: #757575;
+  border-color: @control-border-focus;
   outline: none;
   box-shadow: none;
 }
@@ -41,7 +44,7 @@
 label {
   position: absolute;
   top: -18px;
-  color: #999;
+  color: @control-label;
   font-size: 12px;
   font-weight: 300;
   
@@ -79,11 +82,11 @@ label {
 /* input colors ---- */
 .form-control:focus {
   ~ label {
-    color: #03a9f4;
+    color: @control-border-highlight;
   }
   
   ~ .form-bar:before, ~ .form-bar:after {
-    background: #03a9f4;
+    background: @control-border-highlight;
   }
 }
 
@@ -246,8 +249,8 @@ label {
 
 .checkbox .chk-span.checked {
   top: -2px;
-  border-left: 2px solid #03a9f4;
-  border-bottom: 4px solid #03a9f4;
+  border-left: 2px solid @control-border-highlight;
+  border-bottom: 4px solid @control-border-highlight;
   border-top: 1px solid rgba(0,0,0,0);
   border-right: 1px solid rgba(0,0,0,0);
   -webkit-transform: rotate(-45deg) scaleY(0.5);
@@ -259,20 +262,20 @@ label {
 
 /* checkbox colors */
 .checkbox .chk-span.checked {
-  border-left-color: #03a9f4;
-  border-bottom-color: #03a9f4;
+  border-left-color: @control-border-highlight;
+  border-bottom-color: @control-border-highlight;
 }
 
 /* focus state */
 .checkbox input[type='checkbox']:focus ~ label {
   
-  color: #03a9f4;
+  color: @control-border-highlight;
   
   .chk-span {
-    border-color: #03a9f4;
+    border-color: @control-border-highlight;
     &.checked {
-      border-left-color: #03a9f4;
-      border-bottom-color: #03a9f4;
+      border-left-color: @control-border-highlight;
+      border-bottom-color: @control-border-highlight;
       border-top: 1px solid rgba(0, 0, 0, 0);
       border-right: 1px solid rgba(0, 0, 0, 0);
     }

@@ -6,13 +6,6 @@ Template.rideEventItem.helpers({
 			return driver && driver.profile.name;
 		}
 	},
-	driverRating: function() {
-		var ride = Rides.findOne(this.rideId);
-		if (ride) {
-			var driver = Meteor.users.findOne(ride.driverId);
-			return driver && helpers.ratingCents(driver.profile.rating);
-		}	
-	},
 	isDriver: function() {
  		var currentUser = Meteor.user();
  		return currentUser && currentUser.profile.type == consts.Users.DRIVER;

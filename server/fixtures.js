@@ -36,6 +36,15 @@ if (Rides.find().count() == 0) {
 		}
 	});
 
+	Places.upsert('ChIJ02oeW9PP20YR2XC13VO4YQs', {
+		$set: { name: 'Минск' }
+	});
+
+	Places.upsert('ChIJo-3kuenP2EYR6DaaW7uMh8g', {
+		$set: { name: 'Барановичи' }
+	});
+
+    // Minsk-Baranovichi
 	var rideId1 = Rides.insert({
 		driverId: driverId1,
 		car: 'Ford Transit',

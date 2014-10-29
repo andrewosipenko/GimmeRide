@@ -3,6 +3,7 @@ ng.controls.directive('ngSelectPlace', function() {
         var countries = attrs.countries || '';
 
         $(element).selectize({
+            plugins: ['selectize_material'],
             valueField: 'id',
             labelField: 'place',
             searchField: 'place',

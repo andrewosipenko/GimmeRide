@@ -1,18 +1,19 @@
+@import "material/material.vars.import.less";
+
 header {
 	.gr-main {
 		.jumbotron {
 			height: 500px;
+			margin-bottom: 0;
 		}	
 	}
 
 	.gr-search-form {
-		position: absolute;
 		width: 100%;
-		background-color: rgba(0, 0, 0, 0.6);
-		bottom: 30px;
+		background-color: @container-grey;
 
 		form {
-			padding: 25px 35px;
+			padding: 35px 35px;
 
 			.form-group {
 				text-align: center;
@@ -33,13 +34,6 @@ header {
 			width: 100%;
 		}
 
-		.gr-date {
-			.form-control,
-			.input-group-addon {
-				color: #fff;
-			}
-		}
-
 		.no-float {
 			float: none;
 			display: inline-block;
@@ -50,22 +44,25 @@ header {
 #body {
 	.gr-main {
 		.gr-search-results {
+			padding: 30px 0;
 			position: relative;
 
 			table {
 				width: 100%;
+				margin-bottom: 0;
 			}
 
-			&> div > .spinner {
+			&>div>.spinner {
 				position: absolute;
 				left: 50%;
-				top: 100px;
+				top: 50%;
+				margin: -15px 0 0 -25px;
 			}
 		}
 
 		.gr-search-more {
 			text-align: center;
-			margin-top: 40px;
+			margin-top: 20px;
 			display: none;
 
 			a {

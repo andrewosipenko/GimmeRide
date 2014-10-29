@@ -10,27 +10,31 @@
 		</div>
 		<div class="gr-search-form">
 			<div class="container">
-				<form name="form" class="form-inline gr-form" role="form">
+				<form ng-submit="search()" name="form" class="form-inline gr-form" role="form" novalidate>
 					<div class="form-group">
 						<div class="col-md-3 no-float">
-							<div class="input-group">
+							<div class="input-group" ng-class="{'has-error': submitted && form.from.$invalid}">
 								<select ng-select-place countries="Беларусь" ng-model="fromVal" model="from" init-value="from" name="from" class="gr-place" placeholder="Select From" required>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-3 no-float">
-							<div class="input-group">
+							<div class="input-group" ng-class="{'has-error': submitted && form.to.$invalid}">
 		      					<select ng-select-place countries="Беларусь" ng-model="toVal" model="to" init-value="to" name="to" class="gr-place" placeholder="Select To" required>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-3 no-float">
-							<div ng-select-date class="input-group date gr-date">
-								<input type="text" name="when" ng-model="date" class="form-control" placeholder="Date" required>
+							<div ng-select-date class="input-group date gr-date" ng-class="{'has-error': submitted && form.when.$invalid, 'has-feedback': submitted && form.when.$invalid}">
+								<div class="input-container">
+									<input type="text" name="when" ng-model="date" class="form-control" placeholder="Date" required>
+									<span ng-show="submitted && form.when.$invalid" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+							    	<span ng-show="submitted && form.when.$invalid" class="form-control-feedback-text">Required field</span>
+								</div>
 								<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
 							</div>
 						</div>
-						<button ng-click="search()" type="button" class="btn btn-default col-md-1 pull-right" ng-disabled="form.$invalid">Search</button>
+						<button type="submit" class="btn btn-default col-md-1 no-float">Search</button>
 					</div>
 				</form>
 			</div>

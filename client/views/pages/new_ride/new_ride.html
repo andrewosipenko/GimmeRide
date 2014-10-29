@@ -1,84 +1,120 @@
 <template name="newRidePage">
 	<div class="gr-newride">
 		<div class="container">
-			<form class="gr-form" role="form">
-				<div class="form-group">
-					<div class="row">
-				    	<div class="col-md-6">
-							<select ng-select-place countries="Беларусь" name="from" class="gr-from" placeholder="From" model="from" init-value="from"></select>
-						</div>
-						<div class="col-md-6 pull-right">
-							<select ng-select-place countries="Беларусь" name="to" class="gr-to" placeholder="To" model="to" init-value="to"></select>
+			<div ng-show="loading">
+				{{> spinner}}
+			</div>
+			<div class="gr-success" ng-show="created">
+				<p>
+					<h2>Congratulations! Ride has been created.</h2>
+					<h3>Take a look at <a ng-href="{{pathFor 'rideSeatsPage' _id = ''}}/[[newId]]">ride</a></h3>
+				</p>
+			</div>
+			<div class="gr-form-container">
+				<form ng-submit="create()" name="form" class="gr-form" role="form" ng-show="!created" novalidate>
+					<div class="form-group">
+						<div class="row">
+					    	<div class="col-md-6">
+								<select ng-select-place countries="Беларусь" name="from" class="gr-from" placeholder="From" model="from" init-value="from"></select>
+							</div>
+							<div class="col-md-6 pull-right">
+								<select ng-select-place countries="Беларусь" name="to" class="gr-to" placeholder="To" model="to" init-value="to"></select>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-md-6 col">
-							<div class="btn-group pull-left" data-toggle="buttons">
-								<label class="btn btn-default active" ng-class="{'active': !recurring}" ng-click="recurring=false">
-								    <input type="radio" name="recurring" value="false"> Once
-								</label>
-								<label class="btn btn-default" ng-class="{'active': recurring}" ng-click="recurring=true">
-								    <input type="radio" name="recurring" value="true"> Recur
-								</label>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6 col">
+								<div class="btn-group pull-left" data-toggle="buttons">
+									<label class="btn btn-default active" ng-class="{'active': !recurring}" ng-click="recurring=false">
+									    <input type="radio" name="recurring" value="false"> Once
+									</label>
+									<label class="btn btn-default" ng-class="{'active': recurring}" ng-click="recurring=true">
+									    <input type="radio" name="recurring" value="true"> Recur
+									</label>
+								</div>
+								<div ng-select-date ng-show="!recurring" class="input-group date gr-date pull-right">
+									<div class="input-container">
+										<input type="text" name="when" class="form-control" placeholder="Date" ng-model="date" ng-required="!recurring">
+									</div>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+								</div>
+								<select ng-select ng-show="recurring" class="gr-period pull-right" placeholder="Period" options="periods" init-value="recur" model="recur" ng-required="recurring">
+								</select>
 							</div>
-							<div ng-select-date ng-show="!recurring" class="input-group date gr-date pull-right">
-								<input type="text" name="when" class="form-control" placeholder="Date" ng-model="date">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-							</div>
-							<select ng-select-period ng-show="recurring" class="form-control gr-period pull-right" placeholder="Period" init-value="recur" model="recur">
-							</select>
-						</div>
-						<div class="col-md-6 col">
-					    	<select ng-select-time name="startTimeMins" class="gr-time pull-left" placeholder="Time" init-value="startTimeMins" model="startTimeMins">
-					    	</select>
-					    	<div class="input-group pull-right">
-				  				<input type="number" name="durationMins" class="form-control" placeholder="Duration" ng-model="durationHours">
-				  				<span class="form-highlight"></span>
-								<span class="form-bar"></span>
-								<label class="sr-only" for="durationMins">Duration</label>
-				  			</div>
+							<div class="col-md-6 col">
+						    	<select ng-select name="startTimeMins" class="gr-time pull-left" placeholder="Time" options="times" init-value="startTimeMins" model="startTimeMins">
+						    	</select>
+						    	<div class="input-group pull-right"
+						    		 ng-class="{'has-error': submitted && form.durationMins.$invalid,
+											    'has-feedback': submitted && form.durationMins.$invalid}">
+					  				<input type="number" name="durationMins" class="form-control" placeholder="Duration" ng-model="durationHours" required>
+					  				<span class="form-highlight"></span>
+									<span class="form-bar"></span>
+									<label class="sr-only" for="durationMins">Duration</label>
+									<span ng-show="submitted && form.durationMins.$invalid" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+							    	<span ng-show="submitted && form.durationMins.$invalid" class="form-control-feedback-text">Required field</span>
+					  			</div>
+					  		</div>
 				  		</div>
-			  		</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-md-6 col">
-							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-default active" ng-class="{'active': free}" ng-click="free=true">
-								    <input type="radio" name="free" value="true" checked> Free
-								</label>
-								<label class="btn btn-default" ng-class="{'active': !free}" ng-click="free=false">
-								    <input type="radio" name="free" value="false"> Paid
-								</label>
-							</div>
-							<input ng-show="!free" type="number" name="price" class="form-control pull-right" placeholder="Value" ng-model="price">
-						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-md-6 col">
-							<div class="input-group pull-left">
-								<input type="text" name="car" class="form-control" placeholder="Car" ng-model="car" required>
-								<span class="form-highlight"></span>
-								<span class="form-bar"></span>
-								<label class="sr-only" for="car">Car</label>
-							</div>
-							<div class="input-group pull-right">
-								<input type="number" name="maxSeats" class="form-control" placeholder="Max seats" ng-model="maxSeats">
-								<span class="form-highlight"></span>
-								<span class="form-bar"></span>
-								<label class="sr-only" for="maxSeats">Max seats</label>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6 col">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default active" ng-class="{'active': free}" ng-click="free=true">
+									    <input type="radio" name="free" value="true" checked> Free
+									</label>
+									<label class="btn btn-default" ng-class="{'active': !free}" ng-click="free=false">
+									    <input type="radio" name="free" value="false"> Paid
+									</label>
+								</div>
+								<div class="input-group pull-right"
+									 ng-class="{'has-error': submitted && form.price.$invalid,
+											    'has-feedback': submitted && form.price.$invalid}">
+									<input ng-show="!free" type="number" name="price" class="form-control" placeholder="Value" ng-model="price" ng-required="!free">
+									<span class="form-highlight"></span>
+									<span class="form-bar"></span>
+									<label class="sr-only" for="price">Value</label>
+									<span ng-show="submitted && form.price.$invalid" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+							    	<span ng-show="submitted && form.price.$invalid" class="form-control-feedback-text">Required field</span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="gr-cmd">
-					<button class="btn btn-raised ripple-effect btn-primary">Create</button>
-				</div>
-			</form>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6 col">
+								<div class="input-group pull-left"
+									 ng-class="{'has-error': submitted && form.car.$invalid,
+											    'has-feedback': submitted && form.car.$invalid}">
+									<input type="text" name="car" class="form-control" placeholder="Car" ng-model="car" required>
+									<span class="form-highlight"></span>
+									<span class="form-bar"></span>
+									<label class="sr-only" for="car">Car</label>
+									<span ng-show="submitted && form.car.$invalid" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+							    	<span ng-show="submitted && form.car.$invalid" class="form-control-feedback-text">Required field</span>
+								</div>
+								<div class="input-group pull-right"
+									 ng-class="{'has-error': submitted && form.maxSeats.$invalid,
+											    'has-feedback': submitted && form.maxSeats.$invalid}">
+									<input type="number" name="maxSeats" class="form-control" placeholder="Max seats" ng-model="maxSeats" required>
+									<span class="form-highlight"></span>
+									<span class="form-bar"></span>
+									<label class="sr-only" for="maxSeats">Max seats</label>
+									<span ng-show="submitted && form.maxSeats.$invalid" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+							    	<span ng-show="submitted && form.maxSeats.$invalid" class="form-control-feedback-text">Required field</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row gr-cmd">
+						<div class="col-md-offset-6 col-md-6">
+							<button type="submit" class="btn btn-raised ripple-effect btn-primary">Create</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </template>
@@ -88,7 +124,9 @@
 		<div class="jumbotron">
 			<div class="container">
 				<div class="gr-intro">
-					<h3>Create own ride</h3>
+					<p>
+						<h2>Create own ride</h2>
+					</p>
 				</div>
 			</div>
 		</div>

@@ -1,19 +1,19 @@
-ng.controls.directive('ngSelectPeriod', function() {
-    function link(scope, element, attrs) {
+ng.controls.directive('ngSelect', function() {
+    function link(scope, element, attrs, ngShow) {
 
         $(element).selectize({
             valueField: 'id',
             labelField: 'name',
             searchField: 'name',
-            options: data.Periods,
+            options: scope.options,
             create: false,
             onChange: function(value) {
                 setTimeout(function () {
                     scope.$apply(function () {
                         scope.model = parseInt(value);
                     });
-                }, 1);
-            }
+                });
+            } 
         });
 
         var selectize = $(element)[0].selectize;
@@ -36,7 +36,8 @@ ng.controls.directive('ngSelectPeriod', function() {
         scope: {
             ngShow: '=?',
             model: '=?',
-            initValue: '=?'
+            initValue: '=?',
+            options: '='
         }
     };
 });
