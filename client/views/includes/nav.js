@@ -4,6 +4,6 @@ Template.nav.helpers({
  		return currentUser && currentUser.profile.type == consts.Users.DRIVER;
  	},
  	activeRouteClass: function(routeName) {
-		return Router.current().route.name == routeName && 'active';
+		return Router.current().route.getName() == routeName && 'active';
  	}
 });

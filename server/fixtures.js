@@ -8,6 +8,7 @@ if (Rides.find().count() == 0) {
 			surname: 'Hitchhiker',
 			age: 25,
 			rating: 4,
+			sex: 0,
 			type: consts.Users.RIDER
 		}
 	});
@@ -20,6 +21,7 @@ if (Rides.find().count() == 0) {
 			surname: 'John',
 			age: 35,
 			rating: 3,
+			sex: 0,
 			type: consts.Users.DRIVER
 		}
 	});
@@ -32,6 +34,7 @@ if (Rides.find().count() == 0) {
 			surname: 'Honnold',
 			age: 30,
 			rating: 4,
+			sex: 0,
 			type: consts.Users.DRIVER
 		}
 	});
