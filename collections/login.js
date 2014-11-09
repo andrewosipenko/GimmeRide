@@ -1,0 +1,1 @@
+PhoneVerificationCodes = new Meteor.Collection('phoneVerificationCodes');
